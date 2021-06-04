@@ -2,6 +2,7 @@ package com.lionheartapps.rk.ocr_demo_intern;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
 
@@ -46,8 +47,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        TextView textView = findViewById(R.id.toolbar_title);
+        textView.setText(getString(R.string.app_title));
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+            // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            //  getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
-        Button button = (Button) findViewById(R.id.button);
+        Button button = (Button) findViewById(R.id.button_scan_text);
         scanResults = (TextView) findViewById(R.id.results);
         if (savedInstanceState != null) {
             imageUri = Uri.parse(savedInstanceState.getString(SAVED_INSTANCE_URI));
@@ -110,12 +120,12 @@ public class MainActivity extends AppCompatActivity {
                         scanResults.setText(scanResults.getText() + "Blocks: " + "\n");
                         scanResults.setText(scanResults.getText() + blocks + "\n");
                         scanResults.setText(scanResults.getText() + "---------" + "\n");
-                        scanResults.setText(scanResults.getText() + "Lines: " + "\n");
+                        scanResults.setText(scanResults.getText() + "Lines: " + "\n---------\n");
                         scanResults.setText(scanResults.getText() + lines + "\n");
                         scanResults.setText(scanResults.getText() + "---------" + "\n");
-                        scanResults.setText(scanResults.getText() + "Words: " + "\n");
+                        scanResults.setText(scanResults.getText() + "Words: " + "\n---------\n");
                         scanResults.setText(scanResults.getText() + words + "\n");
-                        scanResults.setText(scanResults.getText() + "---------" + "\n");
+                        scanResults.setText(scanResults.getText() + "---------" + "\n---------\n");
                     }
                 } else {
                     scanResults.setText("Could not set up the detector!");
@@ -130,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void takePicture() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-      //  File photo = new File(Environment.getExternalStorageDirectory(), "picture.jpg");
+        //  File photo = new File(Environment.getExternalStorageDirectory(), "picture.jpg");
         File photo = new File(Environment.getExternalStorageDirectory(), "picture.jpg");
         imageUri = FileProvider.getUriForFile(MainActivity.this,
                 BuildConfig.APPLICATION_ID + ".provider", photo);
@@ -168,5 +178,14 @@ public class MainActivity extends AppCompatActivity {
 
         return BitmapFactory.decodeStream(ctx.getContentResolver()
                 .openInputStream(uri), null, bmOptions);
+    }
+
+
+    //    Open Website Developer Website
+    public void openDeveloperWebsite(View view) {
+
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW);
+        browserIntent.setData(Uri.parse("https://www.lionheartapps.com"));
+        startActivity(browserIntent);
     }
 }

@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">OCR Intern Project</string>
+    <string name="app_name">Ocr Demo Intern Project</string>
+
+    <string name="app_title">OCR DEMO [College Intern Project]</string>
+
+    <string name="project_title">OCR DEMO APP \n Intern College Project</string>
+
+    <string name="project_intro"><b>Aim</b> of this project or <b>app</b> to <b>extract text data</b> from the <b>image</b> using google <b>VISION API</b>.</string>
+
 </resources>

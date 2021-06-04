@@ -13,4 +13,33 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <!-- ToolBar -->
+    <style name="ToolBarStyle" parent="Theme.AppCompat">
+        <item name="android:textColor">#8BC34A</item>
+        <item name="android:textColorPrimary">#9E82FF</item>
+        <item name="android:textColorSecondary">#82B1FF</item>
+        <item name="actionMenuTextColor">#ff6f69</item>
+    </style>
+
+
+    <style name="toolbar_tv" parent="Theme.AppCompat">
+        <item name="android:fontFamily">serif-monospace</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">start</item>
+        <item name="android:layout_gravity">start</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:layout_marginStart">12dp</item>
+        <item name="android:textColor">#ffeead</item>
+    </style>
+
+    <style name="Theme.OCRInternProject.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
