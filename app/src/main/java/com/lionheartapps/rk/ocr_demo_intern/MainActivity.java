@@ -8,6 +8,7 @@ import androidx.core.content.FileProvider;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -20,7 +21,9 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String SAVED_INSTANCE_URI = "uri";
     private static final String SAVED_INSTANCE_RESULT = "result";
 
+    ImageView personImage,projectImage,certificateImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.toolbar_title);
         textView.setText(getString(R.string.app_title));
         setSupportActionBar(toolbar);
+
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
             // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -59,6 +65,14 @@ public class MainActivity extends AppCompatActivity {
 
         Button button = (Button) findViewById(R.id.button_scan_text);
         scanResults = (TextView) findViewById(R.id.results);
+
+        personImage =  findViewById(R.id.imageView_person_detail);
+        projectImage =  findViewById(R.id.imageView_project_detail);
+        certificateImage =  findViewById(R.id.imageView_certificate);
+
+
+
+
         if (savedInstanceState != null) {
             imageUri = Uri.parse(savedInstanceState.getString(SAVED_INSTANCE_URI));
             scanResults.setText(savedInstanceState.getString(SAVED_INSTANCE_RESULT));
@@ -69,6 +83,45 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ActivityCompat.requestPermissions(MainActivity.this, new
                         String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_PERMISSION);
+            }
+        });
+
+        personImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final Dialog dialog = new Dialog(MainActivity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.dialog_self_layout);
+                dialog.show();
+
+            }
+        });
+
+        projectImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final Dialog dialog = new Dialog(MainActivity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.dialog_project_layout);
+                dialog.show();
+
+            }
+        });
+
+        certificateImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final Dialog dialog = new Dialog(MainActivity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.dialog_certify_layout);
+                dialog.show();
+
             }
         });
 

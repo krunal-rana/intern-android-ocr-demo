@@ -5,6 +5,19 @@
 
     <string name="project_title">OCR DEMO APP \n Intern College Project</string>
 
-    <string name="project_intro"><b>Aim</b> of this project or <b>app</b> to <b>extract text data</b> from the <b>image</b> using google <b>VISION API</b>.</string>
+    <string name="project_intro">Aim\n <b>To extract text data from the image</b>
+        \n\n\nDetails\n<b>Extracting text from an image &amp; doing analytics using google Vision Api library with android app.</b>
+        \n\n\nAnalytics Result\n<b>Blocks, Lines, Words</b>\n\n\nSupporting Android Versions\n<b>5.0 To 8.0</b>
+    </string>
+
+    <string name="self_intro">Name\n<b>Rana Mausam Harendrasinh</b>\n\n\Enrollement No\n<b>190943107014</b>\n\n\nSemester\n<b>7</b>\n\n\nInternship Year\n<b>2021</b>
+        \n\n\nCollege/Institute\n<b>Vidhyadeep Institute of Technology</b>\n\n\nUniversity\n<b>GTU</b></string>
+
+
+    <string name="text_certify">Date:<b>15-June-2021</b>\n\nThis is certify that <b>Ms. Rana Mausam Harendrasinh</b> completed her internship from date <b>31-May-2021 To 12-June-2021</b>. She worked on project titled<b> OCR- Image To Text</b>.
+    As part of project she learn about design briefs and app functionalities.\n\nWe wish her all the best for her bright future.\n\nRegards.\nLionehart Apps (OPC) Pvt. Ltd.\nwww.lionheartapps.com </string>
+
+    <string name="developer_name">Powered/Supported By\n<b>Lionheart Apps (OPC) Pvt. Ltd.</b></string>
+
 
 </resources>
